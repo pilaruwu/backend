@@ -1,0 +1,52 @@
+<div class="card-body">
+                  <div class="row">
+                    <div class="col-6 mt-3">
+                      <label for="direccion" class="form-label">Contraseña <span class="text-danger">*</span></label>
+                      <input type="password" class="form-control" placeholder="" aria-label="Cédula" name="pw" id="pw" value="{{this.contrasena}}">
+                    </div>
+                    <div class="col-6 mt-3">
+                      <label for="direccion" class="form-label">Confirmar contraseña <span class="text-danger">*</span></label>
+                      <input type="password" class="form-control" placeholder="" aria-label="Cédula" name="cpw" id="cpw" value="{{this.contrasena}}">
+                    </div>
+                    <div class="col-6 mt-3">
+                      <label for="direccion" class="form-label">Empleado <span class="text-danger">*</span></label>
+                      <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="empleado" name="empleado">
+                        <option selected value="">Seleccione empleado</option>
+                        {{#each resultEmpleado}}
+                        <option value="{{this.idEmp}}">{{this.nombre}}</option>
+                        {{/each}}
+                      </select>
+                    </div>
+                    <div class="col-6 mt-3">
+                      <label for="direccion" class="form-label">Estado <span class="text-danger">*</span></label>
+                      <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="estado" name="estado">
+                        <option selected value="">Seleccione estado</option>
+                        <option value="1">Activo</option>
+                        <option value="0">Inactivo</option>
+                      </select>
+                    </div>
+                    <div class="col-6 mt-3">
+                      <label for="direccion" class="form-label">Rol <span class="text-danger">*</span></label>
+                      <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="rol" name="rol">
+                        <option selected value="">Seleccione rol</option>
+                        {{#each resultRol}}
+                        <option value="{{this.idRol}}">{{this.idRol}}{{this.nombre}}</option>
+                        {{/each}}
+                      </select>
+                    </div>
+                    {{#if this.idUsu}}
+                        <input type="hidden" name="idUsu" id="idUsu" name="idUsu" value="{{this.idUsu}}">
+                    {{/if}}
+                  </div>  
+                </div>
+                <div class="card-footer text-center">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <button class="btn btn-primary w-50" id="add" action="http://localhost:9000/addUsu"><h4>{{#if this.idUsu}}Editar{{else}}Agregar{{/if}}</h4></button>
+                    </div>
+                    <div class="col-md-6">
+                      <a type="button" href="http://localhost:9000/usersList" class="btn btn-danger w-50"><h4>Cancelar</h4></a>
+                    </div>
+                  </div>
+                </div>
+
